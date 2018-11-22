@@ -7,7 +7,7 @@ encoding utf-8
 Sheet 1 3
 Title "Base Board"
 Date ""
-Rev "B"
+Rev "B0"
 Comp "whitequark research"
 Comment1 "Glasgow Debug Tool"
 Comment2 ""
@@ -763,7 +763,7 @@ Wire Wire Line
 Connection ~ 4800 6800
 NoConn ~ 1100 4350
 $Comp
-L Mechanical:Mounting_Hole_PAD MK1
+L glasgow-rescue:Mounting_Hole_PAD-Mechanical MK1
 U 1 1 5AD602A3
 P 900 7050
 F 0 "MK1" H 850 7250 50  0000 L CNN
@@ -774,7 +774,7 @@ F 3 "" H 900 7050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:Mounting_Hole_PAD MK2
+L glasgow-rescue:Mounting_Hole_PAD-Mechanical MK2
 U 1 1 5AD64D62
 P 1100 7050
 F 0 "MK2" H 1050 7250 50  0000 L CNN
@@ -785,7 +785,7 @@ F 3 "" H 1100 7050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:Mounting_Hole_PAD MK3
+L glasgow-rescue:Mounting_Hole_PAD-Mechanical MK3
 U 1 1 5AD64DAE
 P 1300 7050
 F 0 "MK3" H 1250 7250 50  0000 L CNN
@@ -796,7 +796,7 @@ F 3 "" H 1300 7050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:Mounting_Hole_PAD MK4
+L glasgow-rescue:Mounting_Hole_PAD-Mechanical MK4
 U 1 1 5AD64E04
 P 1500 7050
 F 0 "MK4" H 1450 7250 50  0000 L CNN
@@ -987,7 +987,7 @@ FLAGD
 Text Label 3950 4050 0    50   ~ 0
 CLKIF
 $Comp
-L FPGA_Lattice:ICE40UP5K-SG48ITR U4
+L glasgow-rescue:ICE40UP5K-SG48ITR-FPGA_Lattice U4
 U 1 1 5ADBCDAC
 P 7250 3100
 F 0 "U4" H 6950 4150 50  0000 L CNN
@@ -1000,7 +1000,7 @@ F 5 "ICE40UP5K-SG48ITR50" H 7250 3100 50  0001 C CNN "MPN"
 	-1   0    0    -1  
 $EndComp
 $Comp
-L FPGA_Lattice:ICE40UP5K-SG48ITR U4
+L glasgow-rescue:ICE40UP5K-SG48ITR-FPGA_Lattice U4
 U 2 1 5ADBCF53
 P 5700 2950
 F 0 "U4" H 5300 4000 50  0000 L CNN
@@ -1011,7 +1011,7 @@ F 3 "http://www.latticesemi.com/Products/FPGAandCPLD/iCE40Ultra" H 5300 3950 50 
 	-1   0    0    -1  
 $EndComp
 $Comp
-L FPGA_Lattice:ICE40UP5K-SG48ITR U4
+L glasgow-rescue:ICE40UP5K-SG48ITR-FPGA_Lattice U4
 U 3 1 5ADBD03F
 P 5800 4900
 F 0 "U4" H 5600 5550 50  0000 L CNN
@@ -1022,7 +1022,7 @@ F 3 "http://www.latticesemi.com/Products/FPGAandCPLD/iCE40Ultra" H 5400 5900 50 
 	-1   0    0    -1  
 $EndComp
 $Comp
-L FPGA_Lattice:ICE40UP5K-SG48ITR U4
+L glasgow-rescue:ICE40UP5K-SG48ITR-FPGA_Lattice U4
 U 4 1 5ADD0B90
 P 8350 1350
 F 0 "U4" H 8050 1700 50  0000 L CNN
@@ -2210,7 +2210,7 @@ $EndComp
 Wire Wire Line
 	4850 4150 4900 4150
 $Comp
-L Connector:Test_Point TP1
+L glasgow-rescue:Test_Point-Connector TP1
 U 1 1 5ADB3D1E
 P 900 2700
 F 0 "TP1" V 800 2750 50  0000 L CNN
@@ -2221,7 +2221,7 @@ F 3 "~" H 1100 2700 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Connector:Test_Point TP2
+L glasgow-rescue:Test_Point-Connector TP2
 U 1 1 5AE0012C
 P 10450 5700
 F 0 "TP2" V 10350 5850 50  0000 C CNN
@@ -2232,7 +2232,7 @@ F 3 "~" H 10650 5700 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Test_Point TP3
+L glasgow-rescue:Test_Point-Connector TP3
 U 1 1 5AE0058E
 P 10850 5700
 F 0 "TP3" V 10750 5850 50  0000 C CNN
@@ -2584,7 +2584,7 @@ $EndComp
 Wire Wire Line
 	7900 950  8250 950 
 $Comp
-L Mechanical:Mounting_Hole MK5
+L glasgow-rescue:Mounting_Hole-Mechanical MK5
 U 1 1 5ADBCE07
 P 1750 7000
 F 0 "MK5" H 1700 7150 50  0000 L CNN
@@ -2595,7 +2595,7 @@ F 3 "" H 1750 7000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:Mounting_Hole MK6
+L glasgow-rescue:Mounting_Hole-Mechanical MK6
 U 1 1 5ADBD505
 P 1950 7000
 F 0 "MK6" H 1900 7150 50  0000 L CNN
@@ -2792,7 +2792,7 @@ Wire Wire Line
 	8600 3050 8700 3050
 NoConn ~ 8600 3050
 $Comp
-L Connector:Test_Point TP4
+L glasgow-rescue:Test_Point-Connector TP4
 U 1 1 5AE223CE
 P 2200 5150
 F 0 "TP4" H 2150 5400 50  0000 L CNN
@@ -2803,7 +2803,7 @@ F 3 "~" H 2400 5150 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Connector:Test_Point TP5
+L glasgow-rescue:Test_Point-Connector TP5
 U 1 1 5AE22A82
 P 2300 5150
 F 0 "TP5" H 2250 5400 50  0000 C CNN
@@ -2818,7 +2818,7 @@ Wire Wire Line
 Wire Wire Line
 	2300 5150 2300 5050
 $Comp
-L Connector:Test_Point TP6
+L glasgow-rescue:Test_Point-Connector TP6
 U 1 1 5AE93638
 P 4950 5700
 F 0 "TP6" V 4950 5887 50  0000 L CNN
@@ -2903,7 +2903,7 @@ F 3 "" H 4900 3800 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Connector:Test_Point TP7
+L glasgow-rescue:Test_Point-Connector TP7
 U 1 1 5B12B6CA
 P 4950 5800
 F 0 "TP7" V 4950 5987 50  0000 L CNN
