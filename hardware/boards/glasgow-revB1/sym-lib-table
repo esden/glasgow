@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name Glasgow)(type Legacy)(uri ${KIPRJMOD}/../../symbols/Glasgow.lib)(options "")(descr ""))
+  (lib (name glasgow-rescue)(type Legacy)(uri ${KIPRJMOD}/glasgow-rescue.lib)(options "")(descr ""))
+)
