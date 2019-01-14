@@ -151,6 +151,7 @@ F 0 "U30" H 4450 3000 50  0000 L CNN
 F 1 "ICE40HX8K-BG121" H 4400 3100 50  0000 L CNN
 F 2 "Package_BGA:BGA-121_9.0x9.0mm_Layout11x11_P0.8mm_Ball0.4mm_Pad0.35mm_NSMD" H 4750 3000 50  0001 C CNN
 F 3 "http://www.latticesemi.com/Products/FPGAandCPLD/iCE40" H 3900 5450 50  0001 C CNN
+F 4 "ic-ice40hx8k-bg121" H 0   0   50  0001 C CNN "Key"
 	2    4750 4450
 	-1   0    0    -1  
 $EndComp
@@ -164,6 +165,7 @@ F 0 "U30" H 7900 2500 50  0000 L CNN
 F 1 "ICE40HX8K-BG121" H 7900 2600 50  0000 L CNN
 F 2 "Package_BGA:BGA-121_9.0x9.0mm_Layout11x11_P0.8mm_Ball0.4mm_Pad0.35mm_NSMD" H 8250 2750 50  0001 C CNN
 F 3 "http://www.latticesemi.com/Products/FPGAandCPLD/iCE40" H 7400 5200 50  0001 C CNN
+F 4 "ic-ice40hx8k-bg121" H 0   0   50  0001 C CNN "Key"
 	4    8250 4200
 	-1   0    0    -1  
 $EndComp
@@ -298,6 +300,7 @@ F 0 "J5" H 10050 5517 50  0000 C CNN
 F 1 "Conn_02x22_Odd_Even" H 10050 5426 50  0000 C CNN
 F 2 "Connector_PinHeader_1.27mm:PinHeader_2x22_P1.27mm_Vertical_SMD" H 10000 4300 50  0001 C CNN
 F 3 "~" H 10000 4300 50  0001 C CNN
+F 4 "conn-smd-005in-22-2-hdr" H 0   0   50  0001 C CNN "Key"
 	1    10000 4300
 	1    0    0    -1  
 $EndComp
@@ -482,6 +485,7 @@ F 2 "LED_SMD:LED_0603_1608Metric_Pad0.82x1.00mm_HandSolder" H 9800 1050 50  0001
 F 3 "https://www.mouser.com/datasheet/2/445/150060GS75000-368921.pdf" H 9800 1050 50  0001 C CNN
 F 4 "Wurth Electronics" H -450 150 50  0001 C CNN "Mfg"
 F 5 "150060GS75000" H -450 150 50  0001 C CNN "MPN"
+F 6 "led-0603-blu" H 0   0   50  0001 C CNN "Key"
 	1    9800 1050
 	-1   0    0    1   
 $EndComp
@@ -499,6 +503,7 @@ F 2 "LED_SMD:LED_0603_1608Metric_Pad0.82x1.00mm_HandSolder" H 9800 1250 50  0001
 F 3 "https://www.mouser.com/datasheet/2/445/150060GS75000-368921.pdf" H 9800 1250 50  0001 C CNN
 F 4 "Wurth Electronics" H -450 150 50  0001 C CNN "Mfg"
 F 5 "150060GS75000" H -450 150 50  0001 C CNN "MPN"
+F 6 "led-0603-pnk" H 0   0   50  0001 C CNN "Key"
 	1    9800 1250
 	-1   0    0    1   
 $EndComp
@@ -514,6 +519,7 @@ F 2 "LED_SMD:LED_0603_1608Metric_Pad0.82x1.00mm_HandSolder" H 9800 1450 50  0001
 F 3 "https://www.mouser.com/datasheet/2/445/150060GS75000-368921.pdf" H 9800 1450 50  0001 C CNN
 F 4 "Wurth Electronics" H -450 150 50  0001 C CNN "Mfg"
 F 5 "150060GS75000" H -450 150 50  0001 C CNN "MPN"
+F 6 "led-0603-wht" H 0   0   50  0001 C CNN "Key"
 	1    9800 1450
 	-1   0    0    1   
 $EndComp
@@ -529,6 +535,7 @@ F 2 "LED_SMD:LED_0603_1608Metric_Pad0.82x1.00mm_HandSolder" H 9800 1650 50  0001
 F 3 "https://www.mouser.com/datasheet/2/445/150060YS75000-368983.pdf" H 9800 1650 50  0001 C CNN
 F 4 "Wurth Electronics" H -450 150 50  0001 C CNN "Mfg"
 F 5 "150060YS75000" H -450 150 50  0001 C CNN "MPN"
+F 6 "led-0603-pnk" H 0   0   50  0001 C CNN "Key"
 	1    9800 1650
 	-1   0    0    1   
 $EndComp
@@ -544,6 +551,7 @@ F 2 "LED_SMD:LED_0603_1608Metric_Pad0.82x1.00mm_HandSolder" H 9800 1850 50  0001
 F 3 "https://www.mouser.com/datasheet/2/445/150060RS75000-368563.pdf" H 9800 1850 50  0001 C CNN
 F 4 "Wurth Electronics" H -450 150 50  0001 C CNN "Mfg"
 F 5 "150060RS75000" H -450 150 50  0001 C CNN "MPN"
+F 6 "led-0603-blu" H 0   0   50  0001 C CNN "Key"
 	1    9800 1850
 	-1   0    0    1   
 $EndComp
@@ -585,6 +593,7 @@ F 2 "Resistor_SMD:R_0402_1005Metric" V 9380 1050 50  0001 C CNN
 F 3 "https://www.mouser.com/datasheet/2/447/PYu-RC_Group_51_RoHS_L_9-1314892.pdf" H 9450 1050 50  0001 C CNN
 F 4 "Yageo" H -450 150 50  0001 C CNN "Mfg"
 F 5 "RC0603FR-132K2L" H -450 150 50  0001 C CNN "MPN"
+F 6 "res-0402-2k2" H 0   0   50  0001 C CNN "Key"
 	1    9450 1050
 	0    -1   1    0   
 $EndComp
@@ -602,6 +611,7 @@ F 2 "Resistor_SMD:R_0402_1005Metric" V 9380 1650 50  0001 C CNN
 F 3 "https://www.mouser.com/datasheet/2/447/PYu-RC_Group_51_RoHS_L_9-1314892.pdf" H 9450 1650 50  0001 C CNN
 F 4 "Yageo" H -450 150 50  0001 C CNN "Mfg"
 F 5 "RC0603FR-13390RL" H -450 150 50  0001 C CNN "MPN"
+F 6 "res-0402-390" H 0   0   50  0001 C CNN "Key"
 	1    9450 1650
 	0    -1   1    0   
 $EndComp
@@ -625,6 +635,7 @@ F 2 "Resistor_SMD:R_0402_1005Metric" V 9380 1850 50  0001 C CNN
 F 3 "https://www.mouser.hk/datasheet/2/447/PYu-RC_Group_51_RoHS_L_9-1314892.pdf" H 9450 1850 50  0001 C CNN
 F 4 "Yageo" H -450 150 50  0001 C CNN "Mfg"
 F 5 "RC0603FR-07604RL" H -450 150 50  0001 C CNN "MPN"
+F 6 "res-0402-604" H 0   0   50  0001 C CNN "Key"
 	1    9450 1850
 	0    -1   1    0   
 $EndComp
@@ -640,6 +651,7 @@ F 2 "Resistor_SMD:R_0402_1005Metric" V 9380 1250 50  0001 C CNN
 F 3 "https://www.mouser.com/datasheet/2/447/PYu-RC_Group_51_RoHS_L_9-1314892.pdf" H 9450 1250 50  0001 C CNN
 F 4 "Yageo" H -450 150 50  0001 C CNN "Mfg"
 F 5 "RC0603FR-132K2L" H -450 150 50  0001 C CNN "MPN"
+F 6 "res-0402-2k2" H 0   0   50  0001 C CNN "Key"
 	1    9450 1250
 	0    -1   1    0   
 $EndComp
@@ -655,6 +667,7 @@ F 2 "Resistor_SMD:R_0402_1005Metric" V 9380 1450 50  0001 C CNN
 F 3 "https://www.mouser.com/datasheet/2/447/PYu-RC_Group_51_RoHS_L_9-1314892.pdf" H 9450 1450 50  0001 C CNN
 F 4 "Yageo" H -450 150 50  0001 C CNN "Mfg"
 F 5 "RC0603FR-132K2L" H -450 150 50  0001 C CNN "MPN"
+F 6 "res-0402-2k2" H 0   0   50  0001 C CNN "Key"
 	1    9450 1450
 	0    -1   1    0   
 $EndComp
@@ -1120,6 +1133,7 @@ F 2 "Capacitor_SMD:C_0402_1005Metric" H 8888 2500 50  0001 C CNN
 F 3 "https://www.mouser.hk/datasheet/2/396/mlcc02_e-1307760.pdf" H 8850 2650 50  0001 C CNN
 F 4 "Taiyo Yuden" H 2200 1250 50  0001 C CNN "Mfg"
 F 5 "TMK107BJ154KA-T" H 2200 1250 50  0001 C CNN "MPN"
+F 6 "cap-cer-0402-100n" H 0   0   50  0001 C CNN "Key"
 	1    8850 2650
 	1    0    0    -1  
 $EndComp
@@ -1373,6 +1387,7 @@ F 0 "J10" H 2430 3542 50  0000 L CNN
 F 1 "Conn_01x03" H 2300 3800 50  0000 L CNN
 F 2 "Connector_PinHeader_1.27mm:PinHeader_1x03_P1.27mm_Vertical" H 2350 3550 50  0001 C CNN
 F 3 "~" H 2350 3550 50  0001 C CNN
+F 4 "conn-th-005in-3-1-hdr" H 0   0   50  0001 C CNN "Key"
 	1    2350 3550
 	1    0    0    -1  
 $EndComp
@@ -1407,6 +1422,7 @@ F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal" H 2600 2950 5
 F 3 "https://www.mouser.hk/datasheet/2/418/NG_CD_640455_Y3-1255934.pdf" H 2600 2950 50  0001 C CNN
 F 4 "Molex" H -8000 100 50  0001 C CNN "Mfg"
 F 5 "22-05-3021" H -8000 100 50  0001 C CNN "MPN"
+F 6 "conn-th-01in-2-1-hdr-ra" H 0   0   50  0001 C CNN "Key"
 	1    2600 2950
 	1    0    0    1   
 $EndComp
@@ -1441,6 +1457,7 @@ F 2 "Resistor_SMD:R_0402_1005Metric" V 2280 2650 50  0001 C CNN
 F 3 "https://www.mouser.com/datasheet/2/447/PYu-AC_51_RoHS_L_6-1152827.pdf" H 2350 2650 50  0001 C CNN
 F 4 "Yageo" H -8000 100 50  0001 C CNN "Mfg"
 F 5 "AC0603FR-07130RL" H -8000 100 50  0001 C CNN "MPN"
+F 6 "res-0402-130" H 0   0   50  0001 C CNN "Key"
 	1    2350 2650
 	1    0    0    1   
 $EndComp
@@ -1478,6 +1495,7 @@ F 0 "U30" H 950 2600 50  0000 L CNN
 F 1 "ICE40HX8K-BG121" H 950 2700 50  0000 L CNN
 F 2 "Package_BGA:BGA-121_9.0x9.0mm_Layout11x11_P0.8mm_Ball0.4mm_Pad0.35mm_NSMD" H 1300 2800 50  0001 C CNN
 F 3 "http://www.latticesemi.com/Products/FPGAandCPLD/iCE40" H 450 5250 50  0001 C CNN
+F 4 "ic-ice40hx8k-bg121" H 0   0   50  0001 C CNN "Key"
 	1    1300 4250
 	-1   0    0    -1  
 $EndComp
