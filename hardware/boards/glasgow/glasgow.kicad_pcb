@@ -12780,7 +12780,7 @@
   (gr_text "Caution:\nCheck washer & screw size for \nconflicts with LVDS connector" (at 49.75 59.5) (layer Dwgs.User)
     (effects (font (size 1 1) (thickness 0.15)) (justify left))
   )
-  (gr_text 1V2 (at 73.4 112.8) (layer B.SilkS) (tstamp 5CB35192)
+  (gr_text 1V2 (at 73.4 113) (layer B.SilkS) (tstamp 5CB35192)
     (effects (font (size 1.2 1.2) (thickness 0.16)) (justify left mirror))
   )
   (gr_text GND (at 56.55 97.65) (layer B.SilkS) (tstamp 5CBB2FF3)
