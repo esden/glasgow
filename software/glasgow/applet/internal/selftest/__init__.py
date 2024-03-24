@@ -134,8 +134,14 @@ class SelfTestSubtarget(Elaboratable):
 
         self.pins_a = [target.platform.request("port_a", n) for n in range(8)]
         self.pins_b = [target.platform.request("port_b", n) for n in range(8)]
-        self.lvds_pins_n = [target.platform.request("lvds_pins_n", n) for n in range(13)]
-        self.lvds_pins_p = [target.platform.request("lvds_pins_p", n) for n in range(13)]
+
+        try:
+            self.lvds_pins_n = [target.platform.request("lvds_pins_n", n) for n in range(13)]
+            self.lvds_pins_p = [target.platform.request("lvds_pins_p", n) for n in range(13)]
+        except ResourceError:
+            self.lvds_pins_n = []
+            self.lvds_pins_p = []
+
         try:
             self.leds = [target.platform.request("led", n) for n in range(5)]
         except ResourceError:
@@ -202,7 +208,8 @@ class SelfTestApplet(GlasgowApplet):
     __default_modes = ["pins-int", "loopback"]
 
     def build(self, target, args):
-        target.platform.add_resources(lvds_resources)
+        if device.revision >= C0:
+            target.platform.add_resources(lvds_resources)
 
         target.add_submodule(SelfTestSubtarget(applet=self, target=target))
 
