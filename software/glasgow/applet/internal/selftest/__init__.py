@@ -2,9 +2,116 @@ import logging
 import asyncio
 from amaranth import *
 from amaranth.build.res import ResourceError
+from amaranth.build import Resource, Subsignal, Pins, Attrs
 
 from ... import *
 
+lvds_resources = [
+    Resource("lvds_pins_n", 0,
+        Pins("B2", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33", PULLUP = 1)
+    ),
+    Resource("lvds_pins_n", 1,
+        Pins("C3", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33", PULLUP = 1)
+    ),
+    Resource("lvds_pins_n", 2,
+        Pins("C1", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_n", 3,
+        Pins("D1", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_n", 4,
+        Pins("D3", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_n", 5,
+        Pins("E3", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_n", 6,
+        Pins("F2", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_n", 7,
+        Pins("F3", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_n", 8,
+        Pins("G2", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_n", 9,
+        Pins("H3", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_n", 10,
+        Pins("H2", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_n", 11,
+        Pins("K1", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_n", 12,
+        Pins("J2", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_p", 0,
+        Pins("B1", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33", PULLUP = 1)
+    ),
+    Resource("lvds_pins_p", 1,
+        Pins("C4", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33", PULLUP = 1)
+    ),
+    Resource("lvds_pins_p", 2,
+        Pins("C2", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_p", 3,
+        Pins("E1", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_p", 4,
+        Pins("D2", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_p", 5,
+        Pins("E2", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_p", 6,
+        Pins("F1", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_p", 7,
+        Pins("F4", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_p", 8,
+        Pins("G1", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_p", 9,
+        Pins("G3", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_p", 10,
+        Pins("H1", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_p", 11,
+        Pins("J1", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+    Resource("lvds_pins_p", 12,
+        Pins("K2", dir="io"),
+        Attrs(IO_STANDARD="SB_LVCMOS33")
+    ),
+]
 
 class SelfTestSubtarget(Elaboratable):
     def __init__(self, applet, target):
@@ -18,8 +125,17 @@ class SelfTestSubtarget(Elaboratable):
 
         self.reg_leds, applet.addr_leds = target.registers.add_rw(5)
 
+        self.reg_oe_lvds_n, applet.addr_oe_lvds_n = target.registers.add_rw(13)
+        self.reg_o_lvds_n,  applet.addr_o_lvds_n  = target.registers.add_rw(13)
+        self.reg_i_lvds_n,  applet.addr_i_lvds_n  = target.registers.add_ro(13)
+        self.reg_oe_lvds_p, applet.addr_oe_lvds_p = target.registers.add_rw(13)
+        self.reg_o_lvds_p,  applet.addr_o_lvds_p  = target.registers.add_rw(13)
+        self.reg_i_lvds_p,  applet.addr_i_lvds_p  = target.registers.add_ro(13)
+
         self.pins_a = [target.platform.request("port_a", n) for n in range(8)]
         self.pins_b = [target.platform.request("port_b", n) for n in range(8)]
+        self.lvds_pins_n = [target.platform.request("lvds_pins_n", n) for n in range(13)]
+        self.lvds_pins_p = [target.platform.request("lvds_pins_p", n) for n in range(13)]
         try:
             self.leds = [target.platform.request("led", n) for n in range(5)]
         except ResourceError:
@@ -42,6 +158,14 @@ class SelfTestSubtarget(Elaboratable):
             self.reg_i_b.eq(Cat(pin.io.i for pin in self.pins_b))
         ]
 
+        m.d.comb += [
+            Cat(pin.oe for pin in self.lvds_pins_n).eq(self.reg_oe_lvds_n),
+            Cat(pin.o for pin in self.lvds_pins_n).eq(self.reg_o_lvds_n),
+            self.reg_i_lvds_n.eq(Cat(pin.i for pin in self.lvds_pins_n)),
+            Cat(pin.oe for pin in self.lvds_pins_p).eq(self.reg_oe_lvds_p),
+            Cat(pin.o for pin in self.lvds_pins_p).eq(self.reg_o_lvds_p),
+            self.reg_i_lvds_p.eq(Cat(pin.i for pin in self.lvds_pins_p))
+        ]
         m.d.comb += Cat(pin.o for pin in self.leds).eq(self.reg_leds)
 
         return m
@@ -70,12 +194,16 @@ class SelfTestApplet(GlasgowApplet):
           (on all ports, Vsense and Vio pins must be connected)
         * loopback: detect faults in USB FIFO traces
           (no requirements)
+        * lvds: test the LVDS connector
+          (the test plug needs to be inserted)
     """
 
-    __all_modes = ["leds", "pins-int", "pins-ext", "pins-pull", "pins-loop", "voltage", "loopback"]
+    __all_modes = ["leds", "pins-int", "pins-ext", "pins-pull", "pins-loop", "voltage", "loopback", "lvds"]
     __default_modes = ["pins-int", "loopback"]
 
     def build(self, target, args):
+        target.platform.add_resources(lvds_resources)
+
         target.add_submodule(SelfTestSubtarget(applet=self, target=target))
 
         self.mux_interface_1 = iface_1 = target.multiplexer.claim_interface(self, None)
@@ -104,6 +232,19 @@ class SelfTestApplet(GlasgowApplet):
         return None
 
     async def interact(self, device, args, iface):
+
+        async def set_lvds_oe(bits):
+            await device.write_register(self.addr_oe_lvds_p, (bits >> 0) & 0x1fff, width=2)
+            await device.write_register(self.addr_oe_lvds_n, (bits >> 13) & 0x1fff, width=2)
+
+        async def set_lvds_o(bits):
+            await device.write_register(self.addr_o_lvds_p, (bits >> 0) & 0x1fff, width=2)
+            await device.write_register(self.addr_o_lvds_n, (bits >> 13) & 0x1fff, width=2)
+
+        async def get_lvds_i():
+            return ((await device.read_register(self.addr_i_lvds_p, width=2) << 0) |
+                    (await device.read_register(self.addr_i_lvds_n, width=2) << 13))
+
         async def set_oe(bits):
             await device.write_register(self.addr_oe_a, (bits >> 0) & 0xff)
             await device.write_register(self.addr_oe_b, (bits >> 8) & 0xff)
@@ -149,6 +290,47 @@ class SelfTestApplet(GlasgowApplet):
         report = []
         for mode in args.modes or self.__default_modes:
             self.logger.info("running self-test mode %s", mode)
+
+            if mode == "lvds":
+                group_masks = {
+                    # 111           111
+                    # 2109876543210 2109876543210
+                    # nnnnnnnnnnnnn ppppppppppppp
+                    # CBACACACCAACB DABDBDBDDBBDA
+                    "A": 0b0010101001100_0100000000001, # Group A Mask
+                    "B": 0b0100000000001_0010101001100, # Group B Mask
+                    "C": 0b1001010110010_0000000000000, # Group C Mask
+                    "D": 0b0000000000000_1001010110010, # Group D Mask
+                }
+                # Set Z0_P&N and Z1_P&N as input rest as output
+                await set_lvds_o(0b0000000000000_0000000000000)
+                await set_lvds_oe(0b0000000000000_0000000000000)
+                await asyncio.sleep(0.01)
+                i = await get_lvds_i()
+                if i != 0b1111111111111_1111111111111:
+                    passed = False
+                    report.append((mode, f"fail init got {i:026b} expected ".format(i)))
+                await set_lvds_oe(0b0000000000000_0000000000100)
+                await asyncio.sleep(0.01)
+                i = await get_lvds_i()
+                for bit in range(22):
+                    if bit < 11:
+                        oe_mask = 0b0000000000000_0000000000100 << bit
+                    else:
+                        oe_mask = 0b0000000000100_0000000000000 << bit - 11
+                    await set_lvds_oe(oe_mask)
+                    await asyncio.sleep(0.01)
+                    i = await get_lvds_i()
+                    expect_i = 0b1111111111111_1111111111111
+                    expect_group = None
+                    for group, mask in group_masks.items():
+                        if mask & oe_mask != 0:
+                            expect_group = group
+                            expect_i = expect_i & ~mask
+                    if i != expect_i:
+                        passed = False
+                        report.append((mode, f"failed group {expect_group} expected {expect_i:026b} got {i:026b}"))
+                    #print(f"oe: {oe_mask:026b} i: {i:026b} ei {expect_i:026b} group {expect_group}")
 
             if mode == "leds":
                 self.logger.warning("power cycle the device to restore LED function")
